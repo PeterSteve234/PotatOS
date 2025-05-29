@@ -43,3 +43,18 @@ std::map<std::string, std::string> extensoesParaPasta = {
     {".js", "Web"}
     // Adicione mais extensões conforme desejar
 };
+
+// Função que organiza arquivos dentro do diretório fornecido, movendo para pastas correspondentes
+void organizarArquivos(const std::string& caminho) {
+    try {
+        for (const auto& entry : fs::directory_iterator(caminho)) {
+            if (fs::is_regular_file(entry)) { // Verifica se é arquivo normal
+                fs::path arquivo = entry.path();
+                std::string ext = arquivo.extension().string();
+
+                // Converter extensão para minúsculas para evitar problemas
+                std::transform(ext.begin(), ext.end(), ext.begin(), ::tolower);
+
+
+
+// incomplete project
